@@ -2,9 +2,13 @@ terraform {
   required_version = ">= 0.12"
 }
 
-provider "azurerm" {
-  version = "~>2.5" //outbound_type https://github.com/terraform-providers/terraform-provider-azurerm/blob/v2.5.0/CHANGELOG.md
-  features {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
 }
 
 resource "azurerm_resource_group" "vnet" {
