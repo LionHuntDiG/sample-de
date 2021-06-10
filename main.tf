@@ -1,13 +1,12 @@
-terraform {
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.46.0"
-    }
-  }
-}
 provider "azurerm" {
-  features {}
+    # The "feature" block is required for AzureRM provider 2.x. 
+    # If you are using version 1.x, the "features" block is not allowed.
+    version = "~>2.0"
+    features {}
+}
+
+terraform {
+    backend "azurerm" {}
 }
 resource "azurerm_resource_group" "vnet" {
   name     = var.vnet_resource_group_name
@@ -102,9 +101,10 @@ resource "azurerm_kubernetes_cluster" "privateaks" {
     vnet_subnet_id = module.kube_network.subnet_ids["aks-subnet"]
   }
 
-  identity {
-    type = "SystemAssigned"
-  }
+  service_principal {
+        client_id     = var.client_id
+        client_secret = var.client_secret
+    }
 
   network_profile {
     docker_bridge_cidr = var.network_docker_bridge_cidr
