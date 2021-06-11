@@ -129,13 +129,14 @@ resource "azurerm_kubernetes_cluster" "privateaks" {
         client_id     = var.client_id
         client_secret = var.client_secret
     }
-  addon_profile {
+      
+addon_profile {
         oms_agent {
         enabled                    = true
         log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
         }
     }
-  network_profile {
+network_profile {
     docker_bridge_cidr = var.network_docker_bridge_cidr
     dns_service_ip     = var.network_dns_service_ip
     network_plugin     = "azure"
