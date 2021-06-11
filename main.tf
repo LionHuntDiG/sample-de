@@ -6,7 +6,12 @@ provider "azurerm" {
 }
 
 terraform {
-    backend "azurerm" {}
+  backend "azurerm" {
+    resource_group_name  = "DefaultResourceGroup-EUS"
+    storage_account_name = "shastorage"
+    container_name       = "terraformdemo"
+    key                  = "dev.terraform.tfstate"
+  }
 }
 resource "azurerm_resource_group" "vnet" {
   name     = var.vnet_resource_group_name
