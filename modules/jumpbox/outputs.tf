@@ -8,8 +8,3 @@ output "jumpbox_username" {
   value       = var.vm_user
 }
 
-output "jumpbox_password" {
-  description = "Jumpbox VM admin password"
-  value       = random_password.adminpassword.result
-  sensitive    = true
-}

@@ -130,11 +130,9 @@ resource "azurerm_kubernetes_cluster" "privateaks" {
     vnet_subnet_id = module.kube_network.subnet_ids["aks-subnet"]
   }
 
-  service_principal {
-        client_id     = var.client_id
-        client_secret = var.client_secret
-    }
-      
+  identity {
+    type = "SystemAssigned"
+  }    
 addon_profile {
         oms_agent {
         enabled                    = true
@@ -156,6 +154,7 @@ resource "azurerm_role_assignment" "netcontributor" {
   role_definition_name = "Network Contributor"
   scope                = module.kube_network.subnet_ids["aks-subnet"]
   principal_id         = azurerm_kubernetes_cluster.privateaks.identity[0].principal_id
+  
 }
 
 module "jumpbox" {
