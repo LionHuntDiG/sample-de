@@ -1,7 +1,7 @@
 variable resource_group {
   type = string
 }
-
+variable ssh_public_key {}
 variable location {
   type = string
 }
