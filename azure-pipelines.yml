@@ -16,18 +16,21 @@ steps:
   inputs:
     secureFile: 'id_rsa'
 
-- task: TerraformTaskV2@2
+- task: TerraformCLI@0
   inputs:
-    provider: 'azurerm'
     command: 'init'
+    backendType: 'azurerm'
     backendServiceArm: 'azure'
+    ensureBackend: true
     backendAzureRmResourceGroupName: 'DefaultResourceGroup-EUS'
+    backendAzureRmResourceGroupLocation: 'east us'
     backendAzureRmStorageAccountName: 'shastorage'
     backendAzureRmContainerName: 'tfdemo'
     backendAzureRmKey: 'terraform.tfstate'
-- task: TerraformTaskV2@2
+    allowTelemetryCollection: true
+- task: TerraformCLI@0
   inputs:
-    provider: 'azurerm'
     command: 'plan'
+    environmentServiceName: 'azure'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
-    environmentServiceNameAzureRM: 'azure'
+    allowTelemetryCollection: true
