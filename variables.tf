@@ -1,5 +1,7 @@
 variable "client_id" {}
 variable "client_secret" {}
+variable "ssh_public_key" {}
+variable "private" {}
 variable "location" {
   description = "The resource group location"
   default     = "West Europe"
