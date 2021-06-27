@@ -11,7 +11,10 @@ steps:
   name: publickey
   inputs:
     secureFile: 'azure_rsa.pub'
-
+- task: DownloadSecureFile@1
+  name: privatekey
+  inputs:
+    secureFile: 'id_rsa'
 
 - task: TerraformTaskV2@2
   inputs:
