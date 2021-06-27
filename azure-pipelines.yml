@@ -28,6 +28,6 @@ steps:
 - task: TerraformTaskV2@2
   inputs:
     provider: 'azurerm'
-    command: 'apply'
-    environmentServiceNameAzureRM: 'azure'
+    command: 'plan'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
+    environmentServiceNameAzureRM: 'azure'
