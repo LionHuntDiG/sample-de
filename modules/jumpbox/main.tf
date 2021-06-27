@@ -53,7 +53,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
   
   admin_ssh_key {
     username   = var.vm_user
-    public_key = file("${publickey.secureFilePath}")
+    public_key = "${file("${var.ssh_public_key}")}"
   }
 
   os_disk {
@@ -74,7 +74,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
       host     = self.public_ip_address
       type     = "ssh"
       user     = var.vm_user
-      private_key = file("${privatekey.secureFilePath}")
+      private_key = "${file("${var.private.key}")}"
     }
 
     inline = [
