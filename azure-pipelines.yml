@@ -41,6 +41,11 @@ steps:
     allowTelemetryCollection: false
 - task: TerraformCLI@0
   inputs:
+    command: 'forceunlock'
+    allowTelemetryCollection: false
+    lockID: 'ef4983ac-c60a-aa33-16c0-473c52739d13'
+- task: TerraformCLI@0
+  inputs:
     command: 'apply'
     environmentServiceName: 'azure'
     commandOptions:  '-var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
