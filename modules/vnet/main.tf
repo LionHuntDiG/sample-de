@@ -3,6 +3,7 @@ resource "azurerm_virtual_network" "vnet" {
   address_space       = var.address_space
   location            = var.location
   resource_group_name = var.resource_group_name
+  enforce_private_link_endpoint_netwrok_policies = true
 }
 
 resource "azurerm_subnet" "subnet" {
@@ -12,6 +13,6 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = each.value
-  enforce_private_link_endpoint_netwrok_policies = true
+  
 }
   
