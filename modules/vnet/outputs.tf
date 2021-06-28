@@ -5,5 +5,5 @@ output vnet_id {
 
 output subnet_ids {
   description = "Generated subnet IDs map"
-  value       = { for subnet in azurerm_subnet.subnet : subnet.name => subnet.id }
+  value       = azurerm_subnet.subnet.id
 }
