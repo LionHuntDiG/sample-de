@@ -53,7 +53,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
   
   admin_ssh_key {
     username   = var.vm_user
-    public_key = file("/home/vsts/work/1/s/ssh_public_key")
+    public_key = file(var.ssh_public_key)
   }
 
   os_disk {
