@@ -42,7 +42,7 @@ steps:
 
 - task: TerraformCLI@0
   inputs:
-    command: 'apply'
+    command: 'destroy'
     environmentServiceName: 'azure'
-    commandOptions:  '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
     allowTelemetryCollection: false
