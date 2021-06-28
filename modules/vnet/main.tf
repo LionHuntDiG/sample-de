@@ -13,5 +13,6 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = each.value
   
+  enforce_private_link_endpoint_network_policies = true
 }
   
