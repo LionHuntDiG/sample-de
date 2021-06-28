@@ -24,6 +24,9 @@ steps:
       echo "*********************************************"
       ls -lart /home/vsts/work/1/
       ls -lart $(Agent.TempDirectory)
+      
+      echo "*********************************************"
+      echo $(Agent.TempDirectory)
 - task: TerraformCLI@0
   inputs:
     command: 'init'
