@@ -3,7 +3,10 @@ variable resource_group {
 }
 variable "ssh_public_key" {}
 
-variable "private" {}
+variable "private" {
+  type = string
+  default = "/home/vsts/work/1/s/privatekey"
+}
 
 variable location {
   type = string
