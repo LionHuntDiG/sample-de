@@ -1,5 +1,5 @@
-trigger:
-- master
+#trigger:
+#- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,6 +16,10 @@ steps:
   inputs:
     secureFile: 'id_rsa'
 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'ls -lart  /home/vsts/work/1/s'
 - task: TerraformCLI@0
   inputs:
     command: 'init'
