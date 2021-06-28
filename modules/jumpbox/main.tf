@@ -74,7 +74,7 @@ resource "azurerm_linux_virtual_machine" "jumpbox" {
       host     = self.public_ip_address
       type     = "ssh"
       user     = var.vm_user
-      private_key = file("var.private")
+      private_key = file(var.private)
     }
 
     inline = [
