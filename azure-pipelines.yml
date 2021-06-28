@@ -39,11 +39,12 @@ steps:
     backendAzureRmContainerName: 'tfdemo'
     backendAzureRmKey: 'terraform.tfstate'
     allowTelemetryCollection: false
+
 - task: TerraformCLI@0
   inputs:
     command: 'forceunlock'
     allowTelemetryCollection: false
-    lockID: 'ef4983ac-c60a-aa33-16c0-473c52739d13'
+    lockID: '2451cb5e-f35a-f80c-606c-093f9f1a51a8'
 - task: TerraformCLI@0
   inputs:
     command: 'apply'
