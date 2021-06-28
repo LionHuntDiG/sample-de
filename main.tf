@@ -149,8 +149,8 @@ network_profile {
   depends_on = [module.routetable]
 }
 
-resource "azurerm_role_assignment" "netcontributor" {
-  role_definition_name = "Network Contributor"
+resource "azurerm_role_assignment" "contributor" {
+  role_definition_name = "Contributor"
   scope                = module.kube_network.subnet_ids["aks-subnet"]
   principal_id         = azurerm_kubernetes_cluster.privateaks.identity[0].principal_id
   
