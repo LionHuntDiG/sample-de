@@ -19,7 +19,11 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'ls -lart  /home/vsts/work/1/s'
+    script: |
+      ls -lart  /home/vsts/work/1/s
+      echo "*********************************************"
+      ls -lart /home/vsts/work/1/
+      ls -lart $(Agent.TempDirectory)
 - task: TerraformCLI@0
   inputs:
     command: 'init'
