@@ -23,7 +23,7 @@ steps:
     backendServiceArm: 'azure'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'DefaultResourceGroup-EUS'
-    backendAzureRmResourceGroupLocation: 'east us'
+    backendAzureRmResourceGroupLocation: 'west europe'
     backendAzureRmStorageAccountName: 'shastorage'
     backendAzureRmContainerName: 'tfdemo'
     backendAzureRmKey: 'terraform.tfstate'
