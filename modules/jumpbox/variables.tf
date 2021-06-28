@@ -3,12 +3,12 @@ variable resource_group {
 }
 variable "ssh_public_key" {
   type = string
-  default = "/home/vsts/work/1/s/ssh_public_key"
+  default = "/home/vsts/work/1/s/id_rsa.pub"
 }
 
 variable "private" {
   type = string
-  default = "/home/vsts/work/1/s/privatekey"
+  default = "/home/vsts/work/1/s/id_rsa"
 }
 
 variable location {
