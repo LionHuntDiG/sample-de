@@ -23,14 +23,14 @@ steps:
     backendServiceArm: 'azure'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'DefaultResourceGroup-EUS'
-    backendAzureRmResourceGroupLocation: 'west europe'
+    backendAzureRmResourceGroupLocation: 'east us'
     backendAzureRmStorageAccountName: 'shastorage'
     backendAzureRmContainerName: 'tfdemo'
     backendAzureRmKey: 'terraform.tfstate'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
 - task: TerraformCLI@0
   inputs:
     command: 'plan'
     environmentServiceName: 'azure'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath) -var private=$(privatekey.secureFilePath)'
-    allowTelemetryCollection: true
+    allowTelemetryCollection: false
